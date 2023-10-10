@@ -6,6 +6,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -122,8 +123,7 @@ public class MainPageStepDef {
     @When("user click Service Area and then choose from the drop menu Appliance repair Charlotte")
     public void userClickServiceAreaAndThenChooseFromTheDropMenuApplianceRepairCharlotte() {
         Actions actions = new Actions(Driver.getDriver());
-        actions.moveToElement(mainPage.serviceArea).click().perform();
-        actions.moveToElement(mainPage.charlotteArea).click().perform();
+        actions.moveToElement(mainPage.serviceArea).pause(1).moveToElement(mainPage.charlotteArea).click().perform();
     }
 
     @Then("user should see  page Appliance repair Charlotte NC")
@@ -138,8 +138,7 @@ public class MainPageStepDef {
     @When("user click Service Area and then choose from the drop menu Appliance repair Matthews")
     public void userClickServiceAreaAndThenChooseFromTheDropMenuApplianceRepairMatthews() {
         Actions actions = new Actions(Driver.getDriver());
-        actions.moveToElement(mainPage.serviceArea).click().perform();
-        actions.moveToElement(mainPage.matthewsArea).click().perform();
+        actions.moveToElement(mainPage.serviceArea).pause(1).moveToElement(mainPage.matthewsArea).click().perform();
     }
 
     @Then("user should see  page Appliance repair Matthews NC")
@@ -157,8 +156,7 @@ public class MainPageStepDef {
     @When("user click Service Area and then choose from the drop menu Appliance repair Monroe")
     public void userClickServiceAreaAndThenChooseFromTheDropMenuApplianceRepairMonroe() {
         Actions actions = new Actions(Driver.getDriver());
-        actions.moveToElement(mainPage.serviceArea).click().perform();
-        actions.moveToElement(mainPage.monroeArea).click().perform();
+        actions.moveToElement(mainPage.serviceArea).pause(1).moveToElement(mainPage.monroeArea).click().perform();
     }
 
     @Then("user should see  page Appliance repair Monroe NC")
@@ -174,8 +172,7 @@ public class MainPageStepDef {
     @When("user click Service Area and then choose from the drop menu Appliance repair Waxhaw")
     public void userClickServiceAreaAndThenChooseFromTheDropMenuApplianceRepairWaxhaw() {
         Actions actions = new Actions(Driver.getDriver());
-        actions.moveToElement(mainPage.serviceArea).click().perform();
-        actions.moveToElement(mainPage.waxhawArea).click().perform();
+        actions.moveToElement(mainPage.serviceArea).pause(1).moveToElement(mainPage.waxhawArea).click().perform();
     }
 
     @Then("user should see  page Appliance repair Waxhaw NC")
@@ -192,8 +189,7 @@ public class MainPageStepDef {
     @When("user click Service Area and then choose from the drop menu Appliance repair Indian Trail")
     public void userClickServiceAreaAndThenChooseFromTheDropMenuApplianceRepairIndianTrail() {
         Actions actions = new Actions(Driver.getDriver());
-        actions.moveToElement(mainPage.serviceArea).click().perform();
-        actions.moveToElement(mainPage.indianTrailArea).click().perform();
+        actions.moveToElement(mainPage.serviceArea).pause(1).moveToElement(mainPage.indianTrailArea).click().perform();
     }
 
     @Then("user should see  page Appliance repair Indian Trail NC")

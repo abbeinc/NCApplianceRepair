@@ -1,4 +1,4 @@
-
+@single
 Feature: User should be able to use main page. All link and button should work properly.
   Background:
     Given user at the main page
@@ -48,7 +48,7 @@ Feature: User should be able to use main page. All link and button should work p
     When user click Service Area and then choose from the drop menu Appliance repair Waxhaw
     Then user should see  page Appliance repair Waxhaw NC
 
-  @single
+
   Scenario: user should be able to choose from Service Area (Appliance repair Indian Trail)
     When user click Service Area and then choose from the drop menu Appliance repair Indian Trail
     Then user should see  page Appliance repair Indian Trail NC

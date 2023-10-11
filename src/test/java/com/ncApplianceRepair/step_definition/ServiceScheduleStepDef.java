@@ -55,11 +55,9 @@ public class ServiceScheduleStepDef {
         scheduleARepairPage.addressSecondPage.sendKeys(faker.address().fullAddress());
         scheduleARepairPage.availabilityMorning.click();
         //scheduleARepairPage.submitButton.submit();
-
     }
-    @Then("user will see page {int} of Service Schedule")
-    public void userWillSeePageOfServiceSchedule(int arg0) {
-        Assert.assertTrue(scheduleARepairPage.submitButton.isDisplayed());
+    @Then("user will see page Request was submitted")
+    public void userWillSeePageRequestWasSubmitted() {
+    Assert.assertTrue(scheduleARepairPage.submitButton.isDisplayed());
     }
-
 }

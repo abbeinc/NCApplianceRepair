@@ -91,4 +91,35 @@ public class ServiceScheduleStepDef {
         js.executeScript("window.scrollBy(0,100)");
         //scheduleARepairPage.submitButton.submit();
     }
+
+    @When("user fill up page one of a Service Schedule with a {string} for the dryer and fill up page two of a Service Schedule")
+    public void userFillUpPageOneOfAServiceScheduleWithAForTheDryerAndFillUpPageTwoOfAServiceSchedule(String str) throws InterruptedException {
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        js.executeScript("window.scrollBy(0,500)");
+        scheduleARepairPage.zipCode.sendKeys(str);
+        js.executeScript("window.scrollBy(0,500)");
+        actions.moveToElement(scheduleARepairPage.dryer).click().pause(1).perform();
+        actions.moveToElement(scheduleARepairPage.dryerTypeGas).click().pause(2).perform();
+        js.executeScript("window.scrollBy(0,100)");
+        actions.moveToElement(scheduleARepairPage.kenmoreBrand).click().pause(2).perform();
+        js.executeScript("window.scrollBy(0,300)");
+        //wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.dryerNoisyIssue));
+        Thread.sleep(1000);
+        actions.moveToElement(scheduleARepairPage.dryerNoisyIssue).click().pause(1).perform();
+        js.executeScript("window.scrollBy(0,300)");
+        actions.moveToElement(scheduleARepairPage.buttonNext).click().perform();
+        wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.secondPageName));
+        scheduleARepairPage.nameSecondPage.sendKeys(faker.name().fullName());
+        scheduleARepairPage.phoneSecondPage.sendKeys(faker.phoneNumber().cellPhone());
+        scheduleARepairPage.emailSecondPage.sendKeys(faker.name().firstName()+"@gmail.com");
+        scheduleARepairPage.phoneCheckBox.click();
+        js.executeScript("window.scrollBy(0,300)");
+        scheduleARepairPage.addressSecondPage.sendKeys(faker.address().fullAddress());
+        js.executeScript("window.scrollBy(0,100)");
+        wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.availabilityMorning));
+        actions.moveToElement(scheduleARepairPage.availabilityMorning).click().perform();
+        js.executeScript("window.scrollBy(0,100)");
+        //scheduleARepairPage.submitButton.submit();
+
+    }
 }

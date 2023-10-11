@@ -73,4 +73,19 @@ public WebElement phoneSecondPage;
     @FindBy(xpath = "//legend[contains(.,'Issue with Washer')]/following-sibling::div/div/div/label/span[contains(.,'Not Draining')]")
     public WebElement notDraining;
 
-}
+    @FindBy(xpath = "//legend[contains(.,'Type of Appliance')]/..//label/span[contains(.,'Dryer')]" )
+    public WebElement dryer;
+
+    @FindBy(xpath = "//label[contains(.,'Gas')]" )
+    public WebElement dryerTypeGas;
+
+    @FindBy(xpath = "//div[@class='el-checkbox-group']//span[@class='el-checkbox__label'][contains(.,'Kenmore')]")
+    public WebElement kenmoreBrand;
+
+    @FindBy(xpath = "//legend[contains(.,'Issue with Dryer')]/..//label/span[contains(.,'Noisy')]")
+    public WebElement dryerNoisyIssue;
+
+
+
+
+}//div[@class='el-checkbox-group']//span[@class='el-checkbox__label'][contains(.,'Kenmore')]

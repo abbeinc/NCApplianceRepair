@@ -14,6 +14,9 @@ public class MainPage {
     public static void goToMainPage(){
         Driver.getDriver().get("https://ncappliancerepair.com/");
     }
+    @FindBy(xpath = "//li[@id='menu-item-357']/a[.='Home']")
+    public WebElement homeButton;
+
     @FindBy(xpath = "//a[@id='brxe-4a5535']")
     public WebElement scheduleARepair;
 
@@ -51,6 +54,64 @@ public class MainPage {
     @FindBy(xpath = "//li[@id='menu-item-354']/a")
     public WebElement monroeArea;
 
+
+    @FindBy(xpath = "//div[@id='brxe-70805c']")
+    public WebElement refrigeratorRepairPic;
+
+    @FindBy(xpath = "//h3[@id='brxe-7f841c']/a[.='Refrigerator Repair']")
+    public WebElement refrigeratorRepairPicHovered;
+
+    @FindBy(xpath = "//div[@id='brxe-xeqhlh']")
+    public WebElement washerRepairPic;
+    @FindBy(xpath = "//h3[@id='brxe-wztbfr']/a[.='Washer Repair']")
+    public WebElement washerRepairPicHovered;
+
+    @FindBy(xpath = "//div[@id='brxe-95fb17']")
+    public WebElement rangeAndOvenRepairPic;
+
+    @FindBy(xpath = "//h3[@id='brxe-0bbb46']/a[.='Range & Oven Repair']")
+    public WebElement rangeAndOvenRepairPicHovered;
+
+
+
+    @FindBy(xpath = "//div[@id='brxe-f1558e']")
+    public WebElement dryerRepairPic;
+    @FindBy(xpath = "//h3[@id='brxe-b8c763']/a[.='Dryer Repair']")
+    public WebElement dryerRepairPicHovered;
+
+
+    @FindBy(xpath = "//div[@id='brxe-qkbahm']")
+    public WebElement dishwasherRepairPic;
+
+    @FindBy(xpath = "//h3[@id='brxe-ehuavs']/a")
+    public WebElement dishwasherRepairPicHovered;
+
+
+    @FindBy(xpath = "//div[@id='brxe-xbjzkq']")
+    public WebElement microwaveRepairPic;
+
+    @FindBy(xpath = "//h3[@id='brxe-evdvss']/a")
+    public WebElement microwaveRepairPicHovered;
+
+    @FindBy(xpath = "//div[@id='brxe-336736']/a[@id='brxe-d75ba4']")
+    public WebElement scheduleARepair2;
+
+
+    @FindBy(xpath = "//li[@id='brxe-cc31f8']/a")
+    public WebElement locationLinkCharlotte;
+
+
+    @FindBy(xpath = "//li[@id='brxe-91aeaa']/a")
+    public WebElement locationLinkMatthews;
+
+    @FindBy(xpath = "//li[@id='brxe-75f6d6']/a")
+    public WebElement locationLinkMonroe;
+
+    @FindBy(xpath = "//li[@id='brxe-99ed50']/a")
+    public WebElement locationLinkWaxhaw;
+
+    @FindBy(xpath = "//li[@id='brxe-uisrpl']/a")
+    public WebElement locationLinkIndianTrail;
 
 
 }

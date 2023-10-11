@@ -6,6 +6,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -72,14 +73,14 @@ public class MainPageStepDef {
     }
 
 
-    @When("user click We Repair and then choose from the drop menu dishwasher Repair")
+    @When("user click We Repair and then choose from the drop menu Dishwasher Repair")
     public void userClickWeRepairAndThenChooseFromTheDropMenuDishwasherRepair() {
         Actions actions = new Actions(Driver.getDriver());
         actions.moveToElement(mainPage.weRepair).click().perform();
         actions.moveToElement(mainPage.dishwasherRepair).click().perform();
     }
 
-    @Then("user should see dishwasher Repair page")
+    @Then("user should see Dishwasher Repair page")
     public void userShouldSeeDishwasherRepairPage() {
         String expectedTitle = "Dishwasher repair service - NC Appliance Repair";
         String expectedUrl = "https://ncappliancerepair.com/dishwasher-service/";
@@ -95,8 +96,8 @@ public class MainPageStepDef {
         actions.moveToElement(mainPage.dryerRepair).click().perform();
     }
 
-    @Then("user should see dishwasher Dryer page")
-    public void userShouldSeeDishwasherDryerPage() {
+    @Then("user should see Dryer Repair page")
+    public void userShouldSeeDryerRepairPage() {
         String expectedTitle = "Dryer repair service - NC Appliance Repair";
         String expectedUrl = "https://ncappliancerepair.com/dryer-service/";
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofMillis(5000));
@@ -111,8 +112,8 @@ public class MainPageStepDef {
         actions.moveToElement(mainPage.ovenAndRangeRepair).click().perform();
     }
 
-    @Then("user should see dishwasher Oven & Range page")
-    public void userShouldSeeDishwasherOvenRangePage() {
+    @Then("user should see Oven & Range page")
+    public void userShouldSeeOvenRangePage() {
         String expectedTitle = "xpert Oven and Range Repair Service: Troubleshooting Tips, FAQs, and Reliable Solutions - NC Appliance Repair";
         String expectedUrl = "https://ncappliancerepair.com/oven-range-service/";
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofMillis(5000));
@@ -199,5 +200,110 @@ public class MainPageStepDef {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofMillis(5000));
         wait.until(ExpectedConditions.urlMatches(expectedUrl));
         Assert.assertEquals(expectedTitle, Driver.getDriver().getTitle());
+    }
+
+    @When("user click Refrigerator Repair Pic.")
+    public void userClickRefrigeratorRepairPic() {
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        js.executeScript("window.scrollBy(0,1000)");
+        Actions actions = new Actions(Driver.getDriver());
+        actions.moveToElement(mainPage.refrigeratorRepairPic).click(mainPage.refrigeratorRepairPicHovered).perform();
+    }
+
+    @When("user click Washer Repair Pic.")
+    public void userClickWasherRepairPic() {
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        js.executeScript("window.scrollBy(0,1000)");
+        Actions actions = new Actions(Driver.getDriver());
+        actions.moveToElement(mainPage.washerRepairPic).click(mainPage.washerRepairPicHovered).perform();
+
+    }
+
+    @When("user click Range & Oven Repair Pic")
+    public void userClickRangeOvenRepairPic() {
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        js.executeScript("window.scrollBy(0,1000)");
+        Actions actions = new Actions(Driver.getDriver());
+        actions.moveToElement(mainPage.rangeAndOvenRepairPic).click(mainPage.rangeAndOvenRepairPicHovered).perform();
+    }
+
+    @When("user click Dryer Repair Pic")
+    public void userClickDryerRepairPic() {
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        js.executeScript("window.scrollBy(0,1300)");
+        Actions actions = new Actions(Driver.getDriver());
+        actions.moveToElement(mainPage.dryerRepairPic).click(mainPage.dryerRepairPicHovered).perform();
+    }
+
+    @When("user click Dishwasher Repair Pic")
+    public void userClickDishwasherRepairPic() {
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        js.executeScript("window.scrollBy(0,1300)");
+        Actions actions = new Actions(Driver.getDriver());
+        actions.moveToElement(mainPage.dishwasherRepairPic).click(mainPage.dishwasherRepairPicHovered).perform();
+
+    }
+
+    @When("user click Microwave Repair Pic")
+    public void userClickMicrowaveRepairPic() {
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        js.executeScript("window.scrollBy(0,1300)");
+        Actions actions = new Actions(Driver.getDriver());
+        actions.moveToElement(mainPage.microwaveRepairPic).click(mainPage.microwaveRepairPicHovered).perform();
+    }
+
+    @Then("user should see Microwave Repair page")
+    public void userShouldSeeMicrowaveRepairPage() {
+        Assert.assertEquals("https://ncappliancerepair.com/", Driver.getDriver().getCurrentUrl());
+    }
+
+    @When("user click Schedule a Repair button")
+    public void userClickScheduleARepairButton() {
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        js.executeScript("window.scrollBy(0,3000)");
+        Actions actions = new Actions(Driver.getDriver());
+        actions.moveToElement(mainPage.scheduleARepair2).click().perform();
+
+    }
+
+    @When("user scroll all the way and click Appliance repair Charlotte")
+    public void userScrollAllTheWayAndClickApplianceRepairCharlotte() {
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        js.executeScript("window.scrollBy(0,5000)");
+        Actions actions = new Actions(Driver.getDriver());
+        actions.moveToElement(mainPage.locationLinkCharlotte).click().perform();
+    }
+
+    @When("user scroll all the way and click Appliance repair Matthews")
+    public void userScrollAllTheWayAndClickApplianceRepairMatthews() {
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        js.executeScript("window.scrollBy(0,5000)");
+        Actions actions = new Actions(Driver.getDriver());
+        actions.moveToElement(mainPage.locationLinkMatthews).click().perform();
+    }
+
+    @When("user scroll all the way and click Appliance repair Monroe")
+    public void userScrollAllTheWayAndClickApplianceRepairMonroe() {
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        js.executeScript("window.scrollBy(0,5000)");
+        Actions actions = new Actions(Driver.getDriver());
+        actions.moveToElement(mainPage.locationLinkMonroe).click().perform();
+
+    }
+
+    @When("user scroll all the way and click Appliance repair Waxhaw")
+    public void userScrollAllTheWayAndClickApplianceRepairWaxhaw() {
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        js.executeScript("window.scrollBy(0,5000)");
+        Actions actions = new Actions(Driver.getDriver());
+        actions.moveToElement(mainPage.locationLinkWaxhaw).click().perform();
+    }
+
+    @When("user scroll all the way and click Appliance repair Indian Trail")
+    public void userScrollAllTheWayAndClickApplianceRepairIndianTrail() {
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        js.executeScript("window.scrollBy(0,5000)");
+        Actions actions = new Actions(Driver.getDriver());
+        actions.moveToElement(mainPage.locationLinkIndianTrail).click().perform();
     }
 }

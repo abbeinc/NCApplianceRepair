@@ -6,7 +6,7 @@ import org.junit.runner.RunWith;
 
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features =    "src/test/resources/features" //"classpath:features"
+@CucumberOptions(features ="src/test/resources/features" //"classpath:features"
                 ,glue = "com/ncApplianceRepair/step_definition"
                 ,publish = true// it will give you public link of your local html report (free)
                 ,plugin = {"pretty",  "html:target/cucumber.html" // html page report

@@ -32,8 +32,11 @@ public class ServiceScheduleStepDef {
         MainPage.goToMainPage();
         actions.moveToElement(mainPage.scheduleARepair).click().perform();
     }
-     @When("user fill up page one of a Service Schedule with a {string} and fill up page two of a Service Schedule")
-    public void userFillUpPageOneOfAServiceScheduleWithAAndFillUpPageTwoOfAServiceSchedule(String str) {
+
+
+
+    @When("user fill up page one of a Service Schedule with a {string} for the refrigerator and fill up page two of a Service Schedule")
+    public void userFillUpPageOneOfAServiceScheduleWithAForTheRefrigeratorAndFillUpPageTwoOfAServiceSchedule(String str) {
         JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
         js.executeScript("window.scrollBy(0,500)");
         scheduleARepairPage.zipCode.sendKeys(str);
@@ -58,6 +61,34 @@ public class ServiceScheduleStepDef {
     }
     @Then("user will see page Request was submitted")
     public void userWillSeePageRequestWasSubmitted() {
-    Assert.assertTrue(scheduleARepairPage.submitButton.isDisplayed());
+        Assert.assertTrue(scheduleARepairPage.submitButton.isDisplayed());
+    }
+
+    @When("user fill up page one of a Service Schedule with a {string} for the washer and fill up page two of a Service Schedule")
+    public void userFillUpPageOneOfAServiceScheduleWithAForTheWasherAndFillUpPageTwoOfAServiceSchedule(String str)  {
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        js.executeScript("window.scrollBy(0,500)");
+        scheduleARepairPage.zipCode.sendKeys(str);
+        js.executeScript("window.scrollBy(0,500)");
+        actions.moveToElement(scheduleARepairPage.washer).click().perform();
+        actions.moveToElement(scheduleARepairPage.frontLoad).click().perform();
+        scheduleARepairPage.whirlpoolBrand.click();
+        js.executeScript("window.scrollBy(0,300)");
+        wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.notDraining));
+        actions.moveToElement(scheduleARepairPage.notDraining).click().pause(1).perform();
+        js.executeScript("window.scrollBy(0,500)");
+        actions.moveToElement(scheduleARepairPage.buttonNext).click().perform();
+        wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.secondPageName));
+        scheduleARepairPage.nameSecondPage.sendKeys(faker.name().fullName());
+        scheduleARepairPage.phoneSecondPage.sendKeys(faker.phoneNumber().cellPhone());
+        scheduleARepairPage.emailSecondPage.sendKeys(faker.name().firstName()+"@gmail.com");
+        scheduleARepairPage.phoneCheckBox.click();
+        js.executeScript("window.scrollBy(0,300)");
+        scheduleARepairPage.addressSecondPage.sendKeys(faker.address().fullAddress());
+        js.executeScript("window.scrollBy(0,100)");
+        wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.availabilityMorning));
+        actions.moveToElement(scheduleARepairPage.availabilityMorning).click().perform();
+        js.executeScript("window.scrollBy(0,100)");
+        //scheduleARepairPage.submitButton.submit();
     }
 }

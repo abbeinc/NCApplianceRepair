@@ -42,23 +42,35 @@ public class ScheduleARepairPage {
     @FindBy(xpath = "//div[@data-page='2']//label[@id='cog-7-label']")
     public WebElement secondPageName;
 
-    @FindBy(xpath = "//input[@id='cog-7']")
+    @FindBy(xpath = "//label[contains(.,'Name')]/following-sibling::div/div/input")
     public WebElement nameSecondPage;
 
-@FindBy(xpath = "//input[@id='cog-8']")
+@FindBy(xpath = "//label[contains(.,'Phone')]/following-sibling::div/div/input  ")
 public WebElement phoneSecondPage;
-    @FindBy(xpath = "//input[@id='cog-9']")
+    @FindBy(xpath = "//label[contains(.,'Email')]/following-sibling::div/div/input  ")
     public WebElement emailSecondPage;
 
     @FindBy(xpath = "//span[@class='el-checkbox__label'][contains(.,'Phone')]")
     public WebElement phoneCheckBox;
 
-    @FindBy(xpath = "//input[@id='cog-11']")
+    @FindBy(xpath = "//label[contains(.,'Address')]//following-sibling::div/div/input")
     public WebElement addressSecondPage;
 
-    @FindBy(xpath = "//span[@class='el-checkbox__label'][contains(.,'Morning (8am-11am)')]")
+    @FindBy(xpath = "//legend[contains(.,'Availability')]/../div//span[@class=\"el-checkbox__input\"]/following-sibling::span[contains(.,'Morning (8am-11am)')]")
     public WebElement availabilityMorning;
 
     @FindBy(xpath = "//span[@class='cog-button__text'][contains(.,'Submit')]")
     public WebElement submitButton;
+
+    @FindBy(xpath = "//span[@class='el-checkbox__label'][contains(.,'Washer')]")
+    public WebElement washer;
+    @FindBy(xpath = "//span[@class='el-checkbox__label'][contains(.,'Front Load')]")
+    public WebElement frontLoad;
+
+    @FindBy(xpath = "//div[@class='cog-row']//span[@class='el-checkbox__label'][contains(.,'GE')]")
+    public WebElement gEBrand;
+
+    @FindBy(xpath = "//legend[contains(.,'Issue with Washer')]/following-sibling::div/div/div/label/span[contains(.,'Not Draining')]")
+    public WebElement notDraining;
+
 }

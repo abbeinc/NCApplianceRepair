@@ -11,7 +11,7 @@ public class ScheduleARepairPage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    public static void goToScheduleService(){
+    public static void goToScheduleService() {
         Driver.getDriver().get("https://ncappliancerepair.com/schedule-service/");
     }
 
@@ -39,19 +39,20 @@ public class ScheduleARepairPage {
     @FindBy(xpath = "//span[@class='el-checkbox__label'][contains(.,'Not Cooling')]")
     public WebElement notCooling;
 
-    @FindBy(xpath = "//div[@data-page='2']//label[@id='cog-7-label']")
-    public WebElement secondPageName;
-
-    @FindBy(xpath = "//label[contains(.,'Name')]/following-sibling::div/div/input")
+    @FindBy(xpath = "//label[contains(.,'Name')]/../div/div/input")
     public WebElement nameSecondPage;
 
-@FindBy(xpath = "//label[contains(.,'Phone')]/following-sibling::div/div/input  ")
-public WebElement phoneSecondPage;
-    @FindBy(xpath = "//label[contains(.,'Email')]/following-sibling::div/div/input  ")
+
+    @FindBy(xpath = "//label[contains(.,'Phone')]/../div/div/input ")
+    public WebElement phoneSecondPage;
+    @FindBy(xpath = "//label[contains(.,'Email')]/../div/div/input ")
     public WebElement emailSecondPage;
 
     @FindBy(xpath = "//span[@class='el-checkbox__label'][contains(.,'Phone')]")
     public WebElement phoneCheckBox;
+
+    @FindBy(xpath = "//div[@class='cog-choice']//label[contains(.,'Text')]/span/span")
+    public WebElement textCheckBox;
 
     @FindBy(xpath = "//label[contains(.,'Address')]//following-sibling::div/div/input")
     public WebElement addressSecondPage;
@@ -59,11 +60,17 @@ public WebElement phoneSecondPage;
     @FindBy(xpath = "//legend[contains(.,'Availability')]/../div//span[@class=\"el-checkbox__input\"]/following-sibling::span[contains(.,'Morning (8am-11am)')]")
     public WebElement availabilityMorning;
 
+    @FindBy(xpath = "//legend[contains(.,'Availability')]/../div//span[@class=\"el-checkbox__input\"]/following-sibling::span[contains(.,'Afternoon (11am-2pm)')]")
+    public WebElement availabilityAfternoon;
+
     @FindBy(xpath = "//span[@class='cog-button__text'][contains(.,'Submit')]")
     public WebElement submitButton;
 
     @FindBy(xpath = "//span[@class='el-checkbox__label'][contains(.,'Washer')]")
     public WebElement washer;
+
+    @FindBy(xpath = "//span[@class='el-checkbox__label'][contains(.,'Oven')]")
+    public WebElement oven;
     @FindBy(xpath = "//span[@class='el-checkbox__label'][contains(.,'Front Load')]")
     public WebElement frontLoad;
 
@@ -73,19 +80,34 @@ public WebElement phoneSecondPage;
     @FindBy(xpath = "//legend[contains(.,'Issue with Washer')]/following-sibling::div/div/div/label/span[contains(.,'Not Draining')]")
     public WebElement notDraining;
 
-    @FindBy(xpath = "//legend[contains(.,'Type of Appliance')]/..//label/span[contains(.,'Dryer')]" )
+    @FindBy(xpath = "//legend[contains(.,'Type of Appliance')]/..//label/span[contains(.,'Dryer')]")
     public WebElement dryer;
 
-    @FindBy(xpath = "//label[contains(.,'Gas')]" )
+    @FindBy(xpath = "//label[contains(.,'Gas')]")
     public WebElement dryerTypeGas;
+
+    @FindBy(xpath = "//div[@class=\"el-checkbox-group\"]//label[contains(.,'Microwave Combo')]/span[contains(.,'Oven')]")
+    public WebElement ovenTypeMicrowaveCombo;
 
     @FindBy(xpath = "//div[@class='el-checkbox-group']//span[@class='el-checkbox__label'][contains(.,'Kenmore')]")
     public WebElement kenmoreBrand;
 
+    @FindBy(xpath = "//div[@class='el-checkbox-group']//span[@class='el-checkbox__label'][contains(.,'Amana')]")
+    public WebElement amanaBrand;
+
     @FindBy(xpath = "//legend[contains(.,'Issue with Dryer')]/..//label/span[contains(.,'Noisy')]")
     public WebElement dryerNoisyIssue;
+    @FindBy(xpath = "//legend[contains(.,'Issue With Oven')]/..//label/span[contains(.,'Door Locked')]")
+    public WebElement ovenDoorLockedIssue;
+
+    @FindBy(xpath = "//legend[contains(.,'Type of Appliance')]/..//label/span[contains(.,'Dishwasher')]")
+    public WebElement dishwasher;
+
+    @FindBy(xpath = "//div[@class='el-checkbox-group']//span[@class='el-checkbox__label'][contains(.,'KitchenAid')]")
+    public WebElement kitchenAidBrand;
+
+    @FindBy(xpath = "//legend[contains(.,'Issue with Dishwasher')]/..//label/span[contains(.,'Leaking')]")
+    public WebElement dishwasherLeakingIssue;
 
 
-
-
-}//div[@class='el-checkbox-group']//span[@class='el-checkbox__label'][contains(.,'Kenmore')]
+}

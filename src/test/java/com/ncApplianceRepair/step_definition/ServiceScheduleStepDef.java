@@ -9,14 +9,11 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
-import java.util.List;
 
 public class ServiceScheduleStepDef {
 
@@ -26,6 +23,8 @@ public class ServiceScheduleStepDef {
     Faker faker = new Faker();
     MainPage mainPage = new MainPage();
             Actions actions = new Actions(Driver.getDriver());
+
+
 
     @Given("User at the Service Schedule page")
     public void userAtTheServiceSchedulePage() {
@@ -41,15 +40,15 @@ public class ServiceScheduleStepDef {
         js.executeScript("window.scrollBy(0,500)");
         scheduleARepairPage.zipCode.sendKeys(str);
         js.executeScript("window.scrollBy(0,500)");
-        actions.moveToElement(scheduleARepairPage.refrigeratorCheckBox).click().perform();
-        actions.moveToElement(scheduleARepairPage.topFreezer).click().perform();
+        actions.moveToElement(scheduleARepairPage.refrigeratorCheckBox).click().pause(2).perform();
+        actions.moveToElement(scheduleARepairPage.topFreezer).click().pause(2).perform();
         scheduleARepairPage.whirlpoolBrand.click();
         js.executeScript("window.scrollBy(0,300)");
         wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.notCooling));
-        actions.moveToElement(scheduleARepairPage.notCooling).click().pause(1).perform();
+        actions.moveToElement(scheduleARepairPage.notCooling).click().pause(2).perform();
         js.executeScript("window.scrollBy(0,500)");
         actions.moveToElement(scheduleARepairPage.buttonNext).click().perform();
-        wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.secondPageName));
+        wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.nameSecondPage));
         scheduleARepairPage.nameSecondPage.sendKeys(faker.name().fullName());
         scheduleARepairPage.phoneSecondPage.sendKeys(faker.phoneNumber().cellPhone());
         scheduleARepairPage.emailSecondPage.sendKeys(faker.name().firstName()+"@gmail.com");
@@ -78,10 +77,11 @@ public class ServiceScheduleStepDef {
         actions.moveToElement(scheduleARepairPage.notDraining).click().pause(1).perform();
         js.executeScript("window.scrollBy(0,500)");
         actions.moveToElement(scheduleARepairPage.buttonNext).click().perform();
-        wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.secondPageName));
+        wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.nameSecondPage));
         scheduleARepairPage.nameSecondPage.sendKeys(faker.name().fullName());
         scheduleARepairPage.phoneSecondPage.sendKeys(faker.phoneNumber().cellPhone());
         scheduleARepairPage.emailSecondPage.sendKeys(faker.name().firstName()+"@gmail.com");
+        actions.pause(500).perform();
         scheduleARepairPage.phoneCheckBox.click();
         js.executeScript("window.scrollBy(0,300)");
         scheduleARepairPage.addressSecondPage.sendKeys(faker.address().fullAddress());
@@ -98,26 +98,90 @@ public class ServiceScheduleStepDef {
         js.executeScript("window.scrollBy(0,500)");
         scheduleARepairPage.zipCode.sendKeys(str);
         js.executeScript("window.scrollBy(0,500)");
-        actions.moveToElement(scheduleARepairPage.dryer).click().pause(1).perform();
-        actions.moveToElement(scheduleARepairPage.dryerTypeGas).click().pause(2).perform();
-        js.executeScript("window.scrollBy(0,100)");
-        actions.moveToElement(scheduleARepairPage.kenmoreBrand).click().pause(2).perform();
+        actions.moveToElement(scheduleARepairPage.dryer).click().pause(100).perform();
+        actions.moveToElement(scheduleARepairPage.dryerTypeGas).click().pause(1000).perform();
+        js.executeScript("window.scrollBy(0,70)");
+        wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.kenmoreBrand));
+        actions.moveToElement(scheduleARepairPage.kenmoreBrand).click().pause(100).perform();
         js.executeScript("window.scrollBy(0,300)");
         //wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.dryerNoisyIssue));
-        Thread.sleep(1000);
-        actions.moveToElement(scheduleARepairPage.dryerNoisyIssue).click().pause(1).perform();
+        actions.moveToElement(scheduleARepairPage.dryerNoisyIssue).click().pause(100).perform();
         js.executeScript("window.scrollBy(0,300)");
-        actions.moveToElement(scheduleARepairPage.buttonNext).click().perform();
-        wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.secondPageName));
+        actions.moveToElement(scheduleARepairPage.buttonNext).click().pause(100).perform();
+
+        wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.nameSecondPage));
         scheduleARepairPage.nameSecondPage.sendKeys(faker.name().fullName());
         scheduleARepairPage.phoneSecondPage.sendKeys(faker.phoneNumber().cellPhone());
         scheduleARepairPage.emailSecondPage.sendKeys(faker.name().firstName()+"@gmail.com");
-        scheduleARepairPage.phoneCheckBox.click();
-        js.executeScript("window.scrollBy(0,300)");
+        actions.pause(500).perform();
+        actions.click(scheduleARepairPage.textCheckBox).perform();
         scheduleARepairPage.addressSecondPage.sendKeys(faker.address().fullAddress());
         js.executeScript("window.scrollBy(0,100)");
         wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.availabilityMorning));
-        actions.moveToElement(scheduleARepairPage.availabilityMorning).click().perform();
+        actions.moveToElement(scheduleARepairPage.availabilityMorning).click().pause(100).perform();
+        js.executeScript("window.scrollBy(0,100)");
+        //scheduleARepairPage.submitButton.submit();
+
+    }
+
+    @When("user fill up page one of a Service Schedule with a {string} for the dishwasher and fill up page two of a Service Schedule")
+    public void userFillUpPageOneOfAServiceScheduleWithAForTheDishwasherAndFillUpPageTwoOfAServiceSchedule(String str) throws InterruptedException {
+
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        js.executeScript("window.scrollBy(0,500)");
+        scheduleARepairPage.zipCode.sendKeys(str);
+        js.executeScript("window.scrollBy(0,500)");
+        actions.moveToElement(scheduleARepairPage.dishwasher).click().pause(100).perform();
+        js.executeScript("window.scrollBy(0,70)");
+        wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.kitchenAidBrand));
+        actions.moveToElement(scheduleARepairPage.kitchenAidBrand).click().pause(100).perform();
+        js.executeScript("window.scrollBy(0,300)");
+        wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.dishwasherLeakingIssue));
+        actions.moveToElement(scheduleARepairPage.dishwasherLeakingIssue).click().pause(100).perform();
+        js.executeScript("window.scrollBy(0,300)");
+        actions.moveToElement(scheduleARepairPage.buttonNext).click().pause(100).perform();
+        wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.nameSecondPage));
+        scheduleARepairPage.nameSecondPage.sendKeys(faker.name().fullName());
+        scheduleARepairPage.phoneSecondPage.sendKeys(faker.phoneNumber().cellPhone());
+        scheduleARepairPage.emailSecondPage.sendKeys(faker.name().firstName()+"@gmail.com");
+        actions.pause(500).perform();
+        actions.click(scheduleARepairPage.textCheckBox).pause(1000).perform();
+        scheduleARepairPage.addressSecondPage.sendKeys( faker.address().fullAddress());
+        js.executeScript("window.scrollBy(0,100)");
+        wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.availabilityAfternoon));
+       actions.moveToElement(scheduleARepairPage.availabilityAfternoon).click().pause(100).perform();
+        js.executeScript("window.scrollBy(0,100)");
+//        //scheduleARepairPage.submitButton.submit();
+//
+
+    }
+
+    @When("user fill up page one of a Service Schedule with a {string} for the oven and fill up page two of a Service Schedule")
+    public void userFillUpPageOneOfAServiceScheduleWithAForTheOvenAndFillUpPageTwoOfAServiceSchedule(String str) throws InterruptedException {
+
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        js.executeScript("window.scrollBy(0,500)");
+        scheduleARepairPage.zipCode.sendKeys(str);
+        js.executeScript("window.scrollBy(0,500)");
+        actions.moveToElement(scheduleARepairPage.oven).click().pause(1000).perform();
+        actions.click(scheduleARepairPage.ovenTypeMicrowaveCombo).perform();
+        js.executeScript("window.scrollBy(0,100)");
+       wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.amanaBrand));
+       actions.moveToElement(scheduleARepairPage.amanaBrand).click().pause(100).perform();js.executeScript("window.scrollBy(0,300)");
+        wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.ovenDoorLockedIssue));
+        actions.moveToElement(scheduleARepairPage.ovenDoorLockedIssue).click().pause(100).perform();
+        js.executeScript("window.scrollBy(0,300)");
+        actions.moveToElement(scheduleARepairPage.buttonNext).click().pause(100).perform();
+        wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.nameSecondPage));
+        scheduleARepairPage.nameSecondPage.sendKeys(faker.name().fullName());
+        scheduleARepairPage.phoneSecondPage.sendKeys(faker.phoneNumber().cellPhone());
+        scheduleARepairPage.emailSecondPage.sendKeys(faker.name().firstName()+"@gmail.com");
+        actions.pause(500).perform();
+        actions.moveToElement(scheduleARepairPage.textCheckBox).click().perform();
+        scheduleARepairPage.addressSecondPage.sendKeys( faker.address().fullAddress());
+        js.executeScript("window.scrollBy(0,100)");
+        wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.availabilityAfternoon));
+        actions.moveToElement(scheduleARepairPage.availabilityAfternoon).click().pause(100).perform();
         js.executeScript("window.scrollBy(0,100)");
         //scheduleARepairPage.submitButton.submit();
 

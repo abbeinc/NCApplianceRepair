@@ -7,11 +7,6 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class Driver {
-    /**
-     * We want to have a class with that only return Single object
-     * no matter how many times you ask for object
-     * so we are creating this class with technic we learned form Singleton pattern
-     */
 
     private Driver(){
     }

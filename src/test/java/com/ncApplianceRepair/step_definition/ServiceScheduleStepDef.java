@@ -22,8 +22,8 @@ public class ServiceScheduleStepDef {
     WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofMillis(4000));
     Faker faker = new Faker();
     MainPage mainPage = new MainPage();
-            Actions actions = new Actions(Driver.getDriver());
-
+    Actions actions = new Actions(Driver.getDriver());
+    JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
 
 
     @Given("User at the Service Schedule page")
@@ -36,8 +36,10 @@ public class ServiceScheduleStepDef {
 
     @When("user fill up page one of a Service Schedule with a {string} for the refrigerator and fill up page two of a Service Schedule")
     public void userFillUpPageOneOfAServiceScheduleWithAForTheRefrigeratorAndFillUpPageTwoOfAServiceSchedule(String str) {
-        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+
+
         js.executeScript("window.scrollBy(0,500)");
+        wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.zipCode));
         scheduleARepairPage.zipCode.sendKeys(str);
         js.executeScript("window.scrollBy(0,500)");
         actions.moveToElement(scheduleARepairPage.refrigeratorCheckBox).click().pause(2).perform();
@@ -65,8 +67,9 @@ public class ServiceScheduleStepDef {
 
     @When("user fill up page one of a Service Schedule with a {string} for the washer and fill up page two of a Service Schedule")
     public void userFillUpPageOneOfAServiceScheduleWithAForTheWasherAndFillUpPageTwoOfAServiceSchedule(String str)  {
-        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+
         js.executeScript("window.scrollBy(0,500)");
+        wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.zipCode));
         scheduleARepairPage.zipCode.sendKeys(str);
         js.executeScript("window.scrollBy(0,500)");
         actions.moveToElement(scheduleARepairPage.washer).click().perform();
@@ -94,8 +97,9 @@ public class ServiceScheduleStepDef {
 
     @When("user fill up page one of a Service Schedule with a {string} for the dryer and fill up page two of a Service Schedule")
     public void userFillUpPageOneOfAServiceScheduleWithAForTheDryerAndFillUpPageTwoOfAServiceSchedule(String str) throws InterruptedException {
-        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+
         js.executeScript("window.scrollBy(0,500)");
+        wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.zipCode));
         scheduleARepairPage.zipCode.sendKeys(str);
         js.executeScript("window.scrollBy(0,500)");
         actions.moveToElement(scheduleARepairPage.dryer).click().pause(100).perform();
@@ -127,8 +131,9 @@ public class ServiceScheduleStepDef {
     @When("user fill up page one of a Service Schedule with a {string} for the dishwasher and fill up page two of a Service Schedule")
     public void userFillUpPageOneOfAServiceScheduleWithAForTheDishwasherAndFillUpPageTwoOfAServiceSchedule(String str) throws InterruptedException {
 
-        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+
         js.executeScript("window.scrollBy(0,500)");
+        wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.zipCode));
         scheduleARepairPage.zipCode.sendKeys(str);
         js.executeScript("window.scrollBy(0,500)");
         actions.moveToElement(scheduleARepairPage.dishwasher).click().pause(100).perform();
@@ -159,8 +164,9 @@ public class ServiceScheduleStepDef {
     @When("user fill up page one of a Service Schedule with a {string} for the oven and fill up page two of a Service Schedule")
     public void userFillUpPageOneOfAServiceScheduleWithAForTheOvenAndFillUpPageTwoOfAServiceSchedule(String str) throws InterruptedException {
 
-        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+
         js.executeScript("window.scrollBy(0,500)");
+        wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.zipCode));
         scheduleARepairPage.zipCode.sendKeys(str);
         js.executeScript("window.scrollBy(0,500)");
         actions.moveToElement(scheduleARepairPage.oven).click().pause(1000).perform();
@@ -190,8 +196,9 @@ public class ServiceScheduleStepDef {
     @When("user fill up page one of a Service Schedule with a {string} for the range and fill up page two of a Service Schedule")
     public void userFillUpPageOneOfAServiceScheduleWithAForTheRangeAndFillUpPageTwoOfAServiceSchedule(String str) {
 
-        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+
         js.executeScript("window.scrollBy(0,500)");
+        wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.zipCode));
         scheduleARepairPage.zipCode.sendKeys(str);
         js.executeScript("window.scrollBy(0,400)");
         actions.moveToElement(scheduleARepairPage.range).click().pause(1000).perform();
@@ -223,8 +230,9 @@ public class ServiceScheduleStepDef {
 
     @When("user fill up page one of a Service Schedule with a {string} for the freezer and fill up page two of a Service Schedule")
     public void userFillUpPageOneOfAServiceScheduleWithAForTheFreezerAndFillUpPageTwoOfAServiceSchedule(String str) {
-        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+
         js.executeScript("window.scrollBy(0,500)");
+        wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.zipCode));
         scheduleARepairPage.zipCode.sendKeys(str);
         js.executeScript("window.scrollBy(0,300)");
         actions.moveToElement(scheduleARepairPage.freezer).click().pause(1000).perform();
@@ -253,8 +261,9 @@ public class ServiceScheduleStepDef {
 
     @When("user fill up page one of a Service Schedule with a {string} for the cooktop and fill up page two of a Service Schedule")
     public void userFillUpPageOneOfAServiceScheduleWithAForTheCooktopAndFillUpPageTwoOfAServiceSchedule(String str) {
-        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+
         js.executeScript("window.scrollBy(0,500)");
+        wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.zipCode));
         scheduleARepairPage.zipCode.sendKeys(str);
         js.executeScript("window.scrollBy(0,300)");
         actions.moveToElement(scheduleARepairPage.cooktop).click().pause(1000).perform();

@@ -1,5 +1,6 @@
 package com.ncApplianceRepair.pages;
 
+import com.ncApplianceRepair.utility.ConfigReader;
 import com.ncApplianceRepair.utility.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -12,7 +13,7 @@ public class MainPage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
     public static void goToMainPage(){
-        Driver.getDriver().get("https://ncappliancerepair.com/");
+        Driver.getDriver().get(ConfigReader.read("ncApplianceRepair"));
     }
     @FindBy(xpath = "//li[@id='menu-item-357']/a[.='Home']")
     public WebElement homeButton;

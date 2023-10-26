@@ -47,7 +47,6 @@ Feature: User should be able to fill up the form and submit
       | 28104   |
       | 28110   |
       | 28104   |
-      | 28105   |
       | 28110   |
       | 28112   |
       | 28173   |
@@ -110,7 +109,6 @@ Feature: User should be able to fill up the form and submit
       | 28110   |
       | 28112   |
       | 28173   |
-
 
 
   Scenario Outline: User should be able to fill up and submit form for cooktop repair with correct zipcode

@@ -19,7 +19,7 @@ public class ServiceScheduleStepDef {
 
 
     ScheduleARepairPage scheduleARepairPage = new ScheduleARepairPage();
-    WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofMillis(4000));
+    WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofMillis(5000));
     Faker faker = new Faker();
     MainPage mainPage = new MainPage();
     Actions actions = new Actions(Driver.getDriver());
@@ -39,14 +39,17 @@ public class ServiceScheduleStepDef {
         js.executeScript("window.scrollBy(0,500)");
         wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.zipCode));
         scheduleARepairPage.zipCode.sendKeys(str);
-        js.executeScript("window.scrollBy(0,500)");
-        actions.moveToElement(scheduleARepairPage.refrigeratorCheckBox).click().pause(2).perform();
-        actions.moveToElement(scheduleARepairPage.topFreezer).click().pause(2).perform();
-        scheduleARepairPage.whirlpoolBrand.click();
         js.executeScript("window.scrollBy(0,300)");
+        wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.refrigeratorCheckBox));
+        actions.moveToElement(scheduleARepairPage.refrigeratorCheckBox).click().perform();
+        js.executeScript("window.scrollBy(0,300)");
+        actions.moveToElement(scheduleARepairPage.topFreezer).click().perform();
+        js.executeScript("window.scrollBy(0,300)");
+        wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.whirlpoolBrand));
+        scheduleARepairPage.whirlpoolBrand.click();
         wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.notCooling));
         actions.moveToElement(scheduleARepairPage.notCooling).click().pause(2).perform();
-        js.executeScript("window.scrollBy(0,500)");
+        js.executeScript("window.scrollBy(0,300)");
         actions.moveToElement(scheduleARepairPage.buttonNext).click().perform();
         wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.nameSecondPage));
         scheduleARepairPage.nameSecondPage.sendKeys(faker.name().fullName());
@@ -56,11 +59,13 @@ public class ServiceScheduleStepDef {
         js.executeScript("window.scrollBy(0,300)");
         scheduleARepairPage.addressSecondPage.sendKeys(faker.address().fullAddress());
         scheduleARepairPage.availabilityMorning.click();
+        js.executeScript("window.scrollBy(0,300)");
         //scheduleARepairPage.submitButton.submit();
     }
 
     @Then("user will see page Request was submitted")
     public void userWillSeePageRequestWasSubmitted() {
+        wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.submitButton));
         Assert.assertTrue(scheduleARepairPage.submitButton.isDisplayed());
     }
 
@@ -70,14 +75,19 @@ public class ServiceScheduleStepDef {
         js.executeScript("window.scrollBy(0,500)");
         wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.zipCode));
         scheduleARepairPage.zipCode.sendKeys(str);
-        js.executeScript("window.scrollBy(0,500)");
+        js.executeScript("window.scrollBy(0,300)");
+        wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.washer));
         actions.moveToElement(scheduleARepairPage.washer).click().perform();
+        js.executeScript("window.scrollBy(0,300)");
         actions.moveToElement(scheduleARepairPage.frontLoad).click().perform();
+        js.executeScript("window.scrollBy(0,300)");
+        wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.whirlpoolBrand));
         scheduleARepairPage.whirlpoolBrand.click();
         js.executeScript("window.scrollBy(0,300)");
         wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.notDraining));
-        actions.moveToElement(scheduleARepairPage.notDraining).click().pause(1).perform();
-        js.executeScript("window.scrollBy(0,500)");
+        actions.moveToElement(scheduleARepairPage.notDraining).click().perform();
+        js.executeScript("window.scrollBy(0,300)");
+        wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.buttonNext));
         actions.moveToElement(scheduleARepairPage.buttonNext).click().perform();
         wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.nameSecondPage));
         scheduleARepairPage.nameSecondPage.sendKeys(faker.name().fullName());
@@ -100,28 +110,30 @@ public class ServiceScheduleStepDef {
         js.executeScript("window.scrollBy(0,500)");
         wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.zipCode));
         scheduleARepairPage.zipCode.sendKeys(str);
+        wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.dryer));
+        actions.moveToElement(scheduleARepairPage.dryer).click().perform();
         js.executeScript("window.scrollBy(0,500)");
-        actions.moveToElement(scheduleARepairPage.dryer).click().pause(100).perform();
-        actions.moveToElement(scheduleARepairPage.dryerTypeGas).click().pause(1000).perform();
-        js.executeScript("window.scrollBy(0,70)");
-        wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.kenmoreBrand));
-        actions.moveToElement(scheduleARepairPage.kenmoreBrand).click().pause(100).perform();
+        wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.dryerTypeGas));
+        actions.moveToElement(scheduleARepairPage.dryerTypeGas).click().perform();
         js.executeScript("window.scrollBy(0,300)");
-        //wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.dryerNoisyIssue));
-        actions.moveToElement(scheduleARepairPage.dryerNoisyIssue).click().pause(100).perform();
+        wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.kenmoreBrand));
+        actions.moveToElement(scheduleARepairPage.kenmoreBrand).click().perform();
+        wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.dryerNoisyIssue));
+        actions.moveToElement(scheduleARepairPage.dryerNoisyIssue).click().perform();
         js.executeScript("window.scrollBy(0,300)");
         actions.moveToElement(scheduleARepairPage.buttonNext).click().pause(100).perform();
         wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.nameSecondPage));
         scheduleARepairPage.nameSecondPage.sendKeys(faker.name().fullName());
         scheduleARepairPage.phoneSecondPage.sendKeys(faker.phoneNumber().cellPhone());
         scheduleARepairPage.emailSecondPage.sendKeys(faker.name().firstName() + "@gmail.com");
-        actions.pause(500).perform();
+        wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.textCheckBox));
+        actions.pause(1000).perform();
         actions.click(scheduleARepairPage.textCheckBox).perform();
         scheduleARepairPage.addressSecondPage.sendKeys(faker.address().fullAddress());
         js.executeScript("window.scrollBy(0,100)");
         wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.availabilityMorning));
-        actions.moveToElement(scheduleARepairPage.availabilityMorning).click().pause(100).perform();
-        js.executeScript("window.scrollBy(0,100)");
+        actions.moveToElement(scheduleARepairPage.availabilityMorning).click().perform();
+        js.executeScript("window.scrollBy(0,500)");
         //scheduleARepairPage.submitButton.submit();
 
     }
@@ -133,9 +145,10 @@ public class ServiceScheduleStepDef {
         js.executeScript("window.scrollBy(0,500)");
         wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.zipCode));
         scheduleARepairPage.zipCode.sendKeys(str);
-        js.executeScript("window.scrollBy(0,500)");
+        js.executeScript("window.scrollBy(0,300)");
+        wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.dishwasher));
         actions.moveToElement(scheduleARepairPage.dishwasher).click().pause(100).perform();
-        js.executeScript("window.scrollBy(0,70)");
+        js.executeScript("window.scrollBy(0,100)");
         wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.kitchenAidBrand));
         actions.moveToElement(scheduleARepairPage.kitchenAidBrand).click().pause(100).perform();
         js.executeScript("window.scrollBy(0,300)");
@@ -167,7 +180,9 @@ public class ServiceScheduleStepDef {
         wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.zipCode));
         scheduleARepairPage.zipCode.sendKeys(str);
         js.executeScript("window.scrollBy(0,500)");
-        actions.moveToElement(scheduleARepairPage.oven).click().pause(1000).perform();
+        wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.oven));
+        actions.moveToElement(scheduleARepairPage.oven).click().perform();
+        wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.ovenTypeMicrowaveCombo));
         actions.click(scheduleARepairPage.ovenTypeMicrowaveCombo).perform();
         js.executeScript("window.scrollBy(0,100)");
         wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.amanaBrand));
@@ -199,8 +214,10 @@ public class ServiceScheduleStepDef {
         js.executeScript("window.scrollBy(0,500)");
         wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.zipCode));
         scheduleARepairPage.zipCode.sendKeys(str);
-        js.executeScript("window.scrollBy(0,400)");
-        actions.moveToElement(scheduleARepairPage.range).click().pause(1000).perform();
+        js.executeScript("window.scrollBy(0,300)");
+        wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.range));
+        actions.moveToElement(scheduleARepairPage.range).click().perform();
+        wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.rangeTypeDualFuel));
         actions.click(scheduleARepairPage.rangeTypeDualFuel).perform();
         js.executeScript("window.scrollBy(0,300)");
         wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.hotpointBrand));
@@ -233,8 +250,10 @@ public class ServiceScheduleStepDef {
         wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.zipCode));
         scheduleARepairPage.zipCode.sendKeys(str);
         js.executeScript("window.scrollBy(0,300)");
-        actions.moveToElement(scheduleARepairPage.freezer).click().pause(1000).perform();
-        actions.click(scheduleARepairPage.freezerTypeUprightFreezer).pause(1000).perform();
+        wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.freezer));
+        actions.moveToElement(scheduleARepairPage.freezer).click().perform();
+        wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.freezerTypeUprightFreezer));
+        actions.click(scheduleARepairPage.freezerTypeUprightFreezer).perform();
         js.executeScript("window.scrollBy(0,200)");
         wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.subZero));
         actions.click(scheduleARepairPage.subZero).perform();
@@ -263,9 +282,11 @@ public class ServiceScheduleStepDef {
         wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.zipCode));
         scheduleARepairPage.zipCode.sendKeys(str);
         js.executeScript("window.scrollBy(0,300)");
-        actions.moveToElement(scheduleARepairPage.cooktop).click().pause(1000).perform();
+        wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.cooktop));
+        actions.moveToElement(scheduleARepairPage.cooktop).click().perform();
         js.executeScript("window.scrollBy(0,100)");
-        actions.click(scheduleARepairPage.cooktopTypeElectric).pause(1000).perform();
+        wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.cooktopTypeElectric));
+        actions.click(scheduleARepairPage.cooktopTypeElectric).perform();
         js.executeScript("window.scrollBy(0,200)");
         wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.jennAirBrand));
         actions.click(scheduleARepairPage.jennAirBrand).perform();

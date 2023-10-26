@@ -58,15 +58,17 @@ public class MainPageStepDef {
 
     @When("user click We Repair and then choose from the drop menu Washer Repair")
     public void userClickWeRepairAndThenChooseFromTheDropMenuWasherRepair() {
+
         actions.moveToElement(mainPage.weRepair).click().perform();
         actions.moveToElement(mainPage.washerRepair).click().perform();
+
+
     }
 
     @Then("user should see Washer Repair page")
     public void userShouldSeeWasherRepairPage() {
         String expectedTitle = "Washer repair service - NC Appliance Repair";
-        String expectedUrl = "https://ncappliancerepair.com/washer-service/";
-        wait.until(ExpectedConditions.urlMatches(expectedUrl));
+        wait.until(ExpectedConditions.titleIs(expectedTitle));
         Assert.assertEquals(expectedTitle, Driver.getDriver().getTitle());
 
     }
@@ -102,15 +104,17 @@ public class MainPageStepDef {
 
     @When("user click We Repair and then choose from the drop menu Oven & Range Repair")
     public void userClickWeRepairAndThenChooseFromTheDropMenuOvenRangeRepair() {
+
         actions.moveToElement(mainPage.weRepair).click().perform();
         actions.moveToElement(mainPage.ovenAndRangeRepair).click().perform();
+
     }
 
     @Then("user should see Oven & Range page")
     public void userShouldSeeOvenRangePage() {
+
         String expectedTitle = "xpert Oven and Range Repair Service: Troubleshooting Tips, FAQs, and Reliable Solutions - NC Appliance Repair";
-        String expectedUrl = "https://ncappliancerepair.com/oven-range-service/";
-        wait.until(ExpectedConditions.urlMatches(expectedUrl));
+        wait.until(ExpectedConditions.titleIs(expectedTitle));
         Assert.assertEquals(expectedTitle, Driver.getDriver().getTitle());
     }
 
@@ -189,12 +193,14 @@ public class MainPageStepDef {
     @When("user click Refrigerator Repair Pic.")
     public void userClickRefrigeratorRepairPic() {
         js.executeScript("window.scrollBy(0,1000)");
+        wait.until(ExpectedConditions.visibilityOf(mainPage.refrigeratorRepairPic));
         actions.moveToElement(mainPage.refrigeratorRepairPic).click(mainPage.refrigeratorRepairPicHovered).perform();
     }
 
     @When("user click Washer Repair Pic.")
     public void userClickWasherRepairPic() {
         js.executeScript("window.scrollBy(0,1000)");
+        wait.until(ExpectedConditions.visibilityOf(mainPage.washerRepairPic));
         actions.moveToElement(mainPage.washerRepairPic).click(mainPage.washerRepairPicHovered).perform();
 
     }
@@ -202,18 +208,21 @@ public class MainPageStepDef {
     @When("user click Range & Oven Repair Pic")
     public void userClickRangeOvenRepairPic() {
         js.executeScript("window.scrollBy(0,1000)");
+        wait.until(ExpectedConditions.visibilityOf(mainPage.rangeAndOvenRepairPic));
         actions.moveToElement(mainPage.rangeAndOvenRepairPic).click(mainPage.rangeAndOvenRepairPicHovered).perform();
     }
 
     @When("user click Dryer Repair Pic")
     public void userClickDryerRepairPic() {
         js.executeScript("window.scrollBy(0,1300)");
+        wait.until(ExpectedConditions.visibilityOf(mainPage.dryerRepairPic));
         actions.moveToElement(mainPage.dryerRepairPic).click(mainPage.dryerRepairPicHovered).perform();
     }
 
     @When("user click Dishwasher Repair Pic")
     public void userClickDishwasherRepairPic() {
         js.executeScript("window.scrollBy(0,1300)");
+        wait.until(ExpectedConditions.visibilityOf(mainPage.dishwasherRepairPic));
         actions.moveToElement(mainPage.dishwasherRepairPic).click(mainPage.dishwasherRepairPicHovered).perform();
 
     }
@@ -221,6 +230,7 @@ public class MainPageStepDef {
     @When("user click Microwave Repair Pic")
     public void userClickMicrowaveRepairPic() {
         js.executeScript("window.scrollBy(0,1300)");
+        wait.until(ExpectedConditions.visibilityOf(mainPage.microwaveRepairPic));
         actions.moveToElement(mainPage.microwaveRepairPic).click(mainPage.microwaveRepairPicHovered).perform();
     }
 
@@ -232,6 +242,7 @@ public class MainPageStepDef {
     @When("user click Schedule a Repair button")
     public void userClickScheduleARepairButton() {
         js.executeScript("window.scrollBy(0,3000)");
+        wait.until(ExpectedConditions.visibilityOf(mainPage.scheduleARepair2));
         actions.moveToElement(mainPage.scheduleARepair2).click().perform();
 
     }
@@ -239,18 +250,21 @@ public class MainPageStepDef {
     @When("user scroll all the way and click Appliance repair Charlotte")
     public void userScrollAllTheWayAndClickApplianceRepairCharlotte() {
         js.executeScript("window.scrollBy(0,5000)");
+        wait.until(ExpectedConditions.visibilityOf(mainPage.locationLinkCharlotte));
         actions.moveToElement(mainPage.locationLinkCharlotte).click().perform();
     }
 
     @When("user scroll all the way and click Appliance repair Matthews")
     public void userScrollAllTheWayAndClickApplianceRepairMatthews() {
         js.executeScript("window.scrollBy(0,5000)");
+        wait.until(ExpectedConditions.visibilityOf(mainPage.locationLinkMatthews));
         actions.moveToElement(mainPage.locationLinkMatthews).click().perform();
     }
 
     @When("user scroll all the way and click Appliance repair Monroe")
     public void userScrollAllTheWayAndClickApplianceRepairMonroe() {
         js.executeScript("window.scrollBy(0,5000)");
+        wait.until(ExpectedConditions.visibilityOf(mainPage.locationLinkMonroe));
         actions.moveToElement(mainPage.locationLinkMonroe).click().perform();
 
     }
@@ -258,12 +272,14 @@ public class MainPageStepDef {
     @When("user scroll all the way and click Appliance repair Waxhaw")
     public void userScrollAllTheWayAndClickApplianceRepairWaxhaw() {
         js.executeScript("window.scrollBy(0,5000)");
+        wait.until(ExpectedConditions.visibilityOf(mainPage.locationLinkWaxhaw));
         actions.moveToElement(mainPage.locationLinkWaxhaw).click().perform();
     }
 
     @When("user scroll all the way and click Appliance repair Indian Trail")
     public void userScrollAllTheWayAndClickApplianceRepairIndianTrail() {
         js.executeScript("window.scrollBy(0,5000)");
+        wait.until(ExpectedConditions.visibilityOf(mainPage.locationLinkIndianTrail));
         actions.moveToElement(mainPage.locationLinkIndianTrail).click().perform();
     }
 }

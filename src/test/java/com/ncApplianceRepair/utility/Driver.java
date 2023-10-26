@@ -3,81 +3,69 @@ package com.ncApplianceRepair.utility;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class Driver {
 
-    private Driver(){
-    }
 
-    private static WebDriver obj;
+    private Driver() { }
 
-    /**
-     * Return obj with only one WebDriver instance
-     * @return same WebDriver if exists, new one if null
-     */
-    public static WebDriver getDriver(){
+
+    private static  InheritableThreadLocal<WebDriver> driverPool = new InheritableThreadLocal<>();
+
+
+    public static WebDriver getDriver() {
 
         String browserName = ConfigReader.read("browser");
-        if (obj==null){
-                switch (browserName.toLowerCase()){
+
+        if (driverPool.get() == null) {
+            switch (browserName.toLowerCase()) {
 
                 case "chrome":
                     WebDriverManager.chromedriver().setup();
-                    obj=new ChromeDriver();
+                    ChromeOptions opt = new ChromeOptions();
+                    opt.addArguments("--remote-allow-origins=*");
+                    driverPool.set(new ChromeDriver(opt));
                     break;
 
                 case "firefox":
                     WebDriverManager.firefoxdriver().setup();
-                    obj=new FirefoxDriver();
-                    obj.manage().window().maximize();
+                    driverPool.set(new FirefoxDriver());
                     break;
 
                 case "edge":
-                   WebDriverManager.edgedriver().setup();
-                   obj = new EdgeDriver();
-                   obj.manage().window().maximize();
+                    WebDriverManager.edgedriver().setup();
+                    driverPool.set(new EdgeDriver());
                     break;
+
                 default:
-                    obj=null;
-                    System.out.println("Unknown browser type! "+browserName);
+                    System.out.println("Unknown browser type! " + browserName);
 
             }
-            //  System.out.println("one and only object created");
-            return obj;
-            }else {
-            //  System.out.println("You have it just use existing one");
-            return obj;
 
-            }
-            // you not really need else statement it just made for better understanding
-            }
+            return driverPool.get();
 
+        } else {
 
-    /**
-     * Quitting the browser and setting the value of WebDriver
-     * instance to null because you can re-use already quited driver
-     */
-    public static void closeBrowser(){
-        // check if we have webDriver instance or not
-        // basically checking if obj is null or not
-        //if not null
-        // quit the browser
-        // make it null, because once quit it can not be used
-        if(obj!=null){
-            obj.quit();
-            // so when we ask for it again, it gives us not quited fresh driver
-            obj=null;
+            return driverPool.get();
+
         }
-
-
-
-
     }
 
 
 
 
 
+
+    public static void closeBrowser () {
+
+        if (driverPool.get()!=null) {
+            driverPool.get().quit();
+            driverPool.set(null);
+        }
+
+
+    }
 }

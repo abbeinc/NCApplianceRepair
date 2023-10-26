@@ -12,14 +12,14 @@ import java.util.concurrent.TimeUnit;
 
 public class Hooks {
 
-    @Before("@single")
+    @Before("@regression")
     public void setupDriver() {
-        System.out.println("THIS IS FROM @Before inside hooks class");
-        Driver.getDriver().manage().timeouts().implicitlyWait(Duration.ofMillis(5000));
+
+       // Driver.getDriver().manage().timeouts().implicitlyWait(Duration.ofMillis(5000));
         Driver.getDriver().manage().window().maximize();
     }
 
-    @After("@single")
+    @After("@regression")
     public void tearDown(Scenario scenario) {
 
         if (scenario.isFailed()) {
@@ -31,7 +31,7 @@ public class Hooks {
         }
 
 
-        System.out.println("THIS IS FROM @After inside hooks class");
+
         Driver.closeBrowser();
 
     }

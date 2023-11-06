@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: User should be able to use main page. All link and button should work properly.
 -------------------------------------------------------------------------------
-Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 133.15 s - in User should be able to use main page. All link and button should work properly.
+Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 221.749 s - in User should be able to use main page. All link and button should work properly.

@@ -21,8 +21,12 @@ public class MainPageStepDef {
     JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
 
     @Given("user at the main page")
-    public void user_at_the_main_page() {
+    public void user_at_the_main_page() throws InterruptedException {
+
         MainPage.goToMainPage();
+
+        js.executeScript("document.body.style.transform = 'scale(0.7)';");
+
 
     }
 
@@ -35,6 +39,7 @@ public class MainPageStepDef {
 
     @Then("user should see Schedule Service page")
     public void user_should_see_schedule_service_page() {
+        js.executeScript("document.body.style.transform = 'scale(0.5)';");
         String expectedUrl = "https://ncappliancerepair.com/schedule-service/";
         wait.until(ExpectedConditions.urlMatches(expectedUrl));
         Assert.assertEquals(expectedUrl, Driver.getDriver().getCurrentUrl());
@@ -51,6 +56,7 @@ public class MainPageStepDef {
     public void userShouldSeeRefrigeratorRepairPage() {
         String expectedTitle = "Refrigerator Repair - NC Appliance Repair";
         String expectedUrl = "https://ncappliancerepair.com/refrigerator-service/";
+        js.executeScript("document.body.style.transform = 'scale(0.5)';");
         wait.until(ExpectedConditions.urlMatches(expectedUrl));
         Assert.assertEquals(expectedTitle, Driver.getDriver().getTitle());
 
@@ -68,6 +74,7 @@ public class MainPageStepDef {
     @Then("user should see Washer Repair page")
     public void userShouldSeeWasherRepairPage() {
         String expectedTitle = "Washer repair service - NC Appliance Repair";
+        js.executeScript("document.body.style.transform = 'scale(0.5)';");
         wait.until(ExpectedConditions.titleIs(expectedTitle));
         Assert.assertEquals(expectedTitle, Driver.getDriver().getTitle());
 
@@ -84,6 +91,7 @@ public class MainPageStepDef {
     public void userShouldSeeDishwasherRepairPage() {
         String expectedTitle = "Dishwasher repair service - NC Appliance Repair";
         String expectedUrl = "https://ncappliancerepair.com/dishwasher-service/";
+        js.executeScript("document.body.style.transform = 'scale(0.5)';");
         wait.until(ExpectedConditions.urlMatches(expectedUrl));
         Assert.assertEquals(expectedTitle, Driver.getDriver().getTitle());
     }
@@ -114,6 +122,7 @@ public class MainPageStepDef {
     public void userShouldSeeOvenRangePage() {
 
         String expectedTitle = "xpert Oven and Range Repair Service: Troubleshooting Tips, FAQs, and Reliable Solutions - NC Appliance Repair";
+        js.executeScript("document.body.style.transform = 'scale(0.5)';");
         wait.until(ExpectedConditions.titleIs(expectedTitle));
         Assert.assertEquals(expectedTitle, Driver.getDriver().getTitle());
     }
@@ -140,6 +149,7 @@ public class MainPageStepDef {
     public void userShouldSeePageApplianceRepairMatthewsNC() {
         String expectedTitle = "Appliance Repair in Matthews NC - Trusted Service Company";
         String expectedUrl = "https://ncappliancerepair.com/service-area/appliance-repair-matthews-nc/";
+        js.executeScript("document.body.style.transform = 'scale(0.5)';");
         wait.until(ExpectedConditions.urlMatches(expectedUrl));
         String actualTitle = Driver.getDriver().getTitle();
         actualTitle = actualTitle.substring(actualTitle.indexOf("A"));
@@ -157,6 +167,7 @@ public class MainPageStepDef {
     public void userShouldSeePageApplianceRepairMonroeNC() {
         String expectedTitle = "Appliance Repair Monroe - NC Appliance Repair";
         String expectedUrl = "https://ncappliancerepair.com/service-area/appliance-repair-monroe-nc/";
+        js.executeScript("document.body.style.transform = 'scale(0.5)';");
         wait.until(ExpectedConditions.urlMatches(expectedUrl));
         Assert.assertEquals(expectedTitle, Driver.getDriver().getTitle());
 
@@ -171,6 +182,7 @@ public class MainPageStepDef {
     public void userShouldSeePageApplianceRepairWaxhawNC() {
         String expectedTitle = "Appliance Repair in Waxhaw NC -Trusted Service Company";
         String expectedUrl = "https://ncappliancerepair.com/service-area/appliance-repair-waxhaw-nc/";
+        js.executeScript("document.body.style.transform = 'scale(0.5)';");
         wait.until(ExpectedConditions.urlMatches(expectedUrl));
         String actualTitle = Driver.getDriver().getTitle();
         actualTitle = actualTitle.substring(actualTitle.indexOf("A"));
@@ -186,6 +198,7 @@ public class MainPageStepDef {
     public void userShouldSeePageApplianceRepairIndianTrailNC() {
         String expectedTitle = "#1 Appliance Repair Indian Trail - Expert Appliance Service";
         String expectedUrl = "https://ncappliancerepair.com/service-area/appliance-repair-indian-trail-nc/";
+        js.executeScript("document.body.style.transform = 'scale(0.5)';");
         wait.until(ExpectedConditions.urlMatches(expectedUrl));
         Assert.assertEquals(expectedTitle, Driver.getDriver().getTitle());
     }

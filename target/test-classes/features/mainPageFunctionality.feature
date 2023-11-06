@@ -1,4 +1,4 @@
-@regression
+##@regression
 Feature: User should be able to use main page. All link and button should work properly.
   Background:
     Given user at the main page

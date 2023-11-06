@@ -29,13 +29,14 @@ public class ServiceScheduleStepDef {
     @Given("User at the Service Schedule page")
     public void userAtTheServiceSchedulePage() {
         MainPage.goToMainPage();
+        js.executeScript("document.body.style.transform = 'scale(0.5)';");
         actions.moveToElement(mainPage.scheduleARepair).click().perform();
     }
 
     @When("user fill up page one of a Service Schedule with a {string} for the refrigerator and fill up page two of a Service Schedule")
     public void userFillUpPageOneOfAServiceScheduleWithAForTheRefrigeratorAndFillUpPageTwoOfAServiceSchedule(String str) {
 
-
+        js.executeScript("document.body.style.transform = 'scale(0.5)';");
         js.executeScript("window.scrollBy(0,500)");
         wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.zipCode));
         scheduleARepairPage.zipCode.sendKeys(str);
@@ -65,13 +66,14 @@ public class ServiceScheduleStepDef {
 
     @Then("user will see page Request was submitted")
     public void userWillSeePageRequestWasSubmitted() {
+        js.executeScript("document.body.style.transform = 'scale(0.5)';");
         wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.submitButton));
         Assert.assertTrue(scheduleARepairPage.submitButton.isDisplayed());
     }
 
     @When("user fill up page one of a Service Schedule with a {string} for the washer and fill up page two of a Service Schedule")
     public void userFillUpPageOneOfAServiceScheduleWithAForTheWasherAndFillUpPageTwoOfAServiceSchedule(String str) {
-
+        js.executeScript("document.body.style.transform = 'scale(0.5)';");
         js.executeScript("window.scrollBy(0,500)");
         wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.zipCode));
         scheduleARepairPage.zipCode.sendKeys(str);
@@ -106,7 +108,7 @@ public class ServiceScheduleStepDef {
 
     @When("user fill up page one of a Service Schedule with a {string} for the dryer and fill up page two of a Service Schedule")
     public void userFillUpPageOneOfAServiceScheduleWithAForTheDryerAndFillUpPageTwoOfAServiceSchedule(String str) throws InterruptedException {
-
+        js.executeScript("document.body.style.transform = 'scale(0.5)';");
         js.executeScript("window.scrollBy(0,500)");
         wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.zipCode));
         scheduleARepairPage.zipCode.sendKeys(str);
@@ -140,7 +142,7 @@ public class ServiceScheduleStepDef {
 
     @When("user fill up page one of a Service Schedule with a {string} for the dishwasher and fill up page two of a Service Schedule")
     public void userFillUpPageOneOfAServiceScheduleWithAForTheDishwasherAndFillUpPageTwoOfAServiceSchedule(String str) throws InterruptedException {
-
+        js.executeScript("document.body.style.transform = 'scale(0.5)';");
 
         js.executeScript("window.scrollBy(0,500)");
         wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.zipCode));
@@ -174,7 +176,7 @@ public class ServiceScheduleStepDef {
 
     @When("user fill up page one of a Service Schedule with a {string} for the oven and fill up page two of a Service Schedule")
     public void userFillUpPageOneOfAServiceScheduleWithAForTheOvenAndFillUpPageTwoOfAServiceSchedule(String str) throws InterruptedException {
-
+        js.executeScript("document.body.style.transform = 'scale(0.5)';");
 
         js.executeScript("window.scrollBy(0,500)");
         wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.zipCode));
@@ -209,7 +211,7 @@ public class ServiceScheduleStepDef {
 
     @When("user fill up page one of a Service Schedule with a {string} for the range and fill up page two of a Service Schedule")
     public void userFillUpPageOneOfAServiceScheduleWithAForTheRangeAndFillUpPageTwoOfAServiceSchedule(String str) {
-
+        js.executeScript("document.body.style.transform = 'scale(0.5)';");
 
         js.executeScript("window.scrollBy(0,500)");
         wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.zipCode));
@@ -245,7 +247,7 @@ public class ServiceScheduleStepDef {
 
     @When("user fill up page one of a Service Schedule with a {string} for the freezer and fill up page two of a Service Schedule")
     public void userFillUpPageOneOfAServiceScheduleWithAForTheFreezerAndFillUpPageTwoOfAServiceSchedule(String str) {
-
+        js.executeScript("document.body.style.transform = 'scale(0.5)';");
         js.executeScript("window.scrollBy(0,500)");
         wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.zipCode));
         scheduleARepairPage.zipCode.sendKeys(str);
@@ -277,7 +279,7 @@ public class ServiceScheduleStepDef {
 
     @When("user fill up page one of a Service Schedule with a {string} for the cooktop and fill up page two of a Service Schedule")
     public void userFillUpPageOneOfAServiceScheduleWithAForTheCooktopAndFillUpPageTwoOfAServiceSchedule(String str) {
-
+        js.executeScript("document.body.style.transform = 'scale(0.5)';");
         js.executeScript("window.scrollBy(0,500)");
         wait.until(ExpectedConditions.visibilityOf(scheduleARepairPage.zipCode));
         scheduleARepairPage.zipCode.sendKeys(str);
